@@ -22,3 +22,9 @@ jobs:
 
             - name: Build Dart application
               run: dart compile exe bin/sqliteadmin.dart
+
+            - name: Upload artifact
+              uses: actions/upload-artifact@v2
+              with:
+                  name: sqliteadmin.exe
+                  path: d:\a\sqliteadmin\sqliteadmin\bin\sqliteadmin.exe
