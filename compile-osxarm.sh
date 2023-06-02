@@ -1,0 +1,1 @@
+dart compile exe bin/sqliteadmin.dart -o dist/osx-arm/sqliteadmin
