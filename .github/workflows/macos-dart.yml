@@ -1,0 +1,30 @@
+name: macOS Dart Build
+
+on:
+    push:
+        branches:
+            - main
+    pull_request:
+
+jobs:
+    build:
+        runs-on: macOS-latest
+
+        steps:
+            - name: Set up Dart
+              uses: dart-lang/setup-dart@v1
+
+            - name: Checkout code
+              uses: actions/checkout@v2
+
+            - name: Get dependencies
+              run: dart pub get
+
+            - name: Build Dart application
+              run: dart compile exe bin/sqliteadmin.dart -o sqliteadmin
+
+            - name: Upload artifact
+              uses: actions/upload-artifact@v2
+              with:
+                  name: sqliteadmin.exe
+                  path: bin/sqliteadmin
